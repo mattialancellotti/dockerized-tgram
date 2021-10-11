@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  tgram:
+    image: tgram:latest
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/mattia/.local/share/dockerize/tgram/downloads:/home/tgram/Downloads/Telegram Desktop
+      - /run/user/1000:/run/user/1000
+    network_mode: host
+
